@@ -12,10 +12,13 @@ public class BookService {
     BookRepository bookRepository;
     @Autowired
     EmailSender emailSender;
+    @Autowired
+    JmsSender jmsSender;
 
     public void addBook(Book book) {
         bookRepository.save(book);
-//        emailSender.sendEmail("Welcome", contacts.getEmail());
+        emailSender.sendEmail("New arrival", "efrem@yahoo.com");
+        jmsSender.sendMessage(book);
     }
 
     public void updateBook(Book book) {
@@ -27,7 +30,9 @@ public class BookService {
     }
 
     public void deleteBook(String isbn) {
+        Book book = bookRepository.findByISBN(isbn);
         bookRepository.remove(isbn);
+        emailSender.sendEmail("Sold out", "efrem@yahoo.com");
     }
 
     public Collection<Book> getAllBooks(){
