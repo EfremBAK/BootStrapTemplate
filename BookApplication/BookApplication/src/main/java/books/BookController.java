@@ -12,6 +12,6 @@ public class BookController {
 
     @GetMapping("/book")
     public Book displayBook(){
-        return bookService.getBook();
+
     }
 }

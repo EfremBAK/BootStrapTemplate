@@ -12,20 +12,20 @@ public class BookRepository {
     //in memory map of books using isbn as key
     private Map<String, Book> books = new HashMap<>();
 
-    public void addBook(Book book) {
+    public void save(Book book) {
         books.put(book.getIsbn(), book);
     }
 
-    public Book getBook(String isbn) {
+    public Book findByISBN(String isbn) {
 //        return new Book("2134", "George Orwel", "1984", 12.5);
         return books.get(isbn);
     }
 
-    public void deleteBook(String isbn){
+    public void remove(String isbn){
         books.remove(isbn);
     }
 
-    public Collection<Book> getAllBooks(){
+    public Collection<Book> findAll(){
         return books.values();
     }
 }
