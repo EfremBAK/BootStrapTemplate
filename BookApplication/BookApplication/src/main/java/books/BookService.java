@@ -22,7 +22,7 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public Book getBook(String isbn) {
+    public Book findByIsbn(String isbn) {
         return bookRepository.findByISBN(isbn);
     }
 

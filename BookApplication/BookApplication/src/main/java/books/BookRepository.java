@@ -17,7 +17,7 @@ public class BookRepository {
     }
 
     public Book findByISBN(String isbn) {
-//        return new Book("2134", "George Orwel", "1984", 12.5);
+//        return new Book("2134", "George Orwell", "1984", 12.5);
         return books.get(isbn);
     }
 
@@ -29,12 +29,3 @@ public class BookRepository {
         return books.values();
     }
 }
-
-
-/*
-addBook(Book book);
-updateBook(Book book);
-deleteBook(String isbn);
-getBook(String isbn);
-getAllBooks();
- */
